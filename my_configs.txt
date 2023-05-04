@@ -1,0 +1,11 @@
+sxhkd //keymap
+dmenu //run apps (rofi is better)
+alacritty //terminal app
+polybar //status bar
+pulseaudio -> https://youtu.be/EeDNuQO7TKE
+nitrogen //wallpaper
+nvim //text editor
+ranger //file manager
+picom //compositor (windows transparency and wallpaper blur)
+ncdu //disk usage terminal app
+htop //shows processes running 
