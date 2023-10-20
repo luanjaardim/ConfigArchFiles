@@ -2,17 +2,17 @@
 # wm independent hotkeys
 #
 
-# run terminal
+# terminal emulator
 super + Return
-	alacritty
+  alacritty
+
+# program launcher
+super + @space
+	rofi -show drun
 
 # run terminal apps
 super + {r, e, n}
-	alacritty -e {ranger, htop, ncdu}
-
-# program launcher and open windows
-super + {@space, w}
-	rofi -theme dracula -show {drun, window}
+	alacritty -e {ranger, htop, ncdu /}
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -21,6 +21,10 @@ super + Escape
 #
 # bspwm hotkeys
 #
+
+# hide/show polybar
+super + x
+	/$HOME/.config/sxhkd/scripts/pol_state.sh
 
 # quit/restart bspwm
 super + alt + {q,r}
@@ -126,7 +130,8 @@ super + {Left,Down,Up,Right}
 
 #
 # audio control
-#
+# install pulseaudio pulseaudio-alsa alsa-utils
+# and run: pulseaudio --start
 
 # Mute
 XF86AudioMute
@@ -135,3 +140,28 @@ XF86AudioMute
 # Raise or lower volume
 XF86Audio{Raise,Lower}Volume
     pactl set-sink-volume @DEFAULT_SINK@ {+,-}2%
+
+
+#
+# bright control (and transparency with picom)
+# install brightnessctl
+
+XF86MonBrightnessUp
+    brightnessctl set +100
+XF86MonBrightnessDown
+    brightnessctl set 100-
+shift + XF86MonBrightnessUp
+		picom-trans -c +5
+shift + XF86MonBrightnessDown
+		picom-trans -c -5
+
+#
+# screenshot
+# instal scrot
+
+# tmp print
+@Print
+		scrot -s --line mode=edge /tmp/%Y-%m-%d-%H%M%Sh.png -e 'xclip -selection clipboard -target image/png -i $f'
+# saving a print on specific path
+shift + @Print
+		scrot -s --line mode=edge ~/pictures/screenzadas/%Y-%m-%d-%H%M%Sh.png -e 'xclip -selection clipboard -target image/png -i $f'
