@@ -1,0 +1,206 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+transp = #00000000
+dark = #AA00004d
+foreground = #AA33334d
+alert = #A54242
+disabled = #707880
+green = #00FF00
+blue = #AA3333ff
+red = #FF0000
+yellow = #FFF000
+pink = #FF0066
+pink2 = #FF79C6
+purple = #FFbd93f9
+cyan = #00FFFF
+
+;WORKSPACES BAR
+[bar/workspaces]
+width = 15%
+height = 20pt
+radius = 10
+offset-x = 812
+offset-y = 3
+
+module-margin-right = 0
+module-margin-left = 0
+
+background = ${colors.transp}
+
+separator = " "
+separator-foreground = ${colors.transp}
+font-0 = RobotoMonoNerdFont
+
+modules-center = l-arrow xworkspaces r-arrow
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+enable-ipc = true
+wm-restack = bspwm
+
+[module/xworkspaces]
+type = internal/xworkspaces
+
+;background = ${colors.foreground}
+
+label-active = 
+label-active-foreground = ${colors.purple}
+label-active-padding = 1
+
+label-occupied = 
+label-occupied-padding = 1
+label-occupied-foreground = ${colors.purple}
+;label-occupied-background = ${colors.foreground}
+
+label-empty = 
+label-empty-foreground = ${colors.disabled}
+label-empty-padding = 1
+
+[module/r-arrow]
+type = custom/text
+content = 
+content-foreground = ${colors.purple}
+
+[module/l-arrow]
+type = custom/text
+content = 
+content-foreground = ${colors.purple}
+
+
+
+
+
+;VOLUME BAR
+[bar/volume]
+width = 4%
+height = 18pt
+radius = 10
+offset-x = 500
+offset-y = 0
+
+module-margin-right = 0
+module-margin-left = 0
+
+background = ${colors.dark}
+
+font-0 = "RobotoMonoNerdFont:size=13;3"
+
+modules-center = volume-m
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+enable-ipc = true
+wm-restack = bspwm
+
+[module/volume-m]
+type = internal/alsa
+
+format-volume = <label-volume>
+label-volume = "  %percentage%% "
+format-volume-foreground = ${colors.pink2}
+;format-volume-foreground-alt = ${colors.background-alt}
+
+format-muted = <label-muted>
+label-muted = 
+format-muted-foreground = ${colors.red}
+
+
+
+
+
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label>  <bar>
+label = 
+
+bar-width = 10
+bar-indicator = |
+bar-fill = ─
+bar-empty = ${module/xbacklight.bar-fill}
+
+[module/wlan]
+type = internal/network
+interface = wlp3s0
+
+format-connected = <label-connected>
+label-connected =   %essid%
+format-disconnected = <label-disconnected>
+label-disconnected =   disconnected
+
+
+[bar/battery]
+width = 4%
+height = 18pt
+radius = 10
+offset-x = 600
+offset-y = 0
+
+module-margin-right = 0
+module-margin-left = 0
+
+background = ${colors.dark}
+
+font-0 = "RobotoMonoNerdFont:size=13;3"
+
+modules-center = battery-m
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+enable-ipc = true
+wm-restack = bspwm
+
+[module/battery-m]
+type = internal/battery
+battery = BAT1
+adapter = ACAD
+full-at = 95
+low-at = 20
+time-format = %-H hr %-M min
+
+format-charging = <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+label-charging =   %percentage%%  
+label-discharging = %percentage%%
+label-full =   %percentage%%
+
+ramp-capacity-0 = " "
+ramp-capacity-0-foreground = ${colors.red}
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
+
+[module/date]
+type = internal/date
+date = %Y-%m-%d%
+time = %H:%M
+date-alt = %A, %d %B %Y
+time-alt = %H:%M:%S
+interval = 1.0
+
+label = %date% %time%
+
+format-background = ${colors.foreground}
+format-foreground = #fff
