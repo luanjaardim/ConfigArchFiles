@@ -1,0 +1,11 @@
+set number
+set relativenumber
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set autoindent
+set mouse=a	
+" set clipboard+=unnamedplus
+
+map <C-q> :quit<CR>
+nnoremap <C-s> :write<CR>
