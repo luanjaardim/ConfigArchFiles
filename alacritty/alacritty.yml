@@ -1,3 +1,5 @@
+import:
+  - ~/.config/alacritty/themes/tokyo_night.yaml
 window:
   padding:
     x: 10
@@ -13,18 +15,18 @@ scrolling:
 
 font:
   normal:
-    family: SpaceMono Nerd Font
+    family: RobotoMonoNerdFont
     style:  Regular
   bold:
-    family: SpaceMono Nerd Font
+    family: RobotoMonoNerdFont
     style:  Bold
   italic:
-    family: SpaceMono Nerd Font
+    family: RobotoMonoNerdFont
     style:  Italic
   bold_italic:
-    family: SpaceMono Nerd Font
-    style: Bold Italic
-  size: 12
+    family: RobotoMonoNerdFont
+    style:  Bold Italic
+  size: 8
 draw_bold_text_with_bright_colors: true
 
 selection:
@@ -35,3 +37,5 @@ shell:
 
 key_bindings:
   - { key: Return, mods: Super|Shift, action: SpawnNewInstance }
+  - { key: Left, mods: Control, chars: "\x1BF" }
+  - { key: Right,  mods: Control, chars: "\x1BB" }
