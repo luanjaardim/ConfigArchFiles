@@ -35,7 +35,7 @@ dosfstools 4.2-3 //instaled for dual boot, check if it's necessary
 dunst 1.9.2-1 //for receive notifications
 efibootmgr 18-2 //instaled for dual boot, check if it's necessary
 emacs 29.1-4 //text editor
-fd 8.7.0-1 //command for find things, check it for learn how to use
+fd 8.7.0-1 //command for find things, doom emacs uses it for performance
 feh 3.10-1 //wallpapper manager
 git 2.42.0-1
 grub 2:2.12rc1-1
@@ -70,7 +70,7 @@ python-pip 23.2.1-1 //pip command
 python-virtualenv 20.24.5-1 //for python virtual envs
 qemu-full 8.1.1-1 //qemu, 32 machine emulator
 ranger 1.9.3-9 //terminal file manager
-ripgrep 13.0.0-3 //command similar to grep, learn how to use it
+ripgrep 13.0.0-3 //command similar to grep, used by doom emacs
 rofi 1.7.5-2 //run apps
 scrot 1.10-1 //for print screen
 sudo 1.9.14.p3-1
