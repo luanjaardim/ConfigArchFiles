@@ -7,7 +7,7 @@ super + Return
   alacritty
 
 # program launcher
-super + @space
+super + space
 	rofi -show drun
 
 # run terminal apps
