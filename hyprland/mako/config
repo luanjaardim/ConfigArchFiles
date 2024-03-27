@@ -1,0 +1,13 @@
+max-history=10
+font=JetBrainsMono Nerd Font
+border-radius=5
+background-color=#363d38ee
+text-color=#EEEEEE
+
+[urgency=normal]
+default-timeout=1000
+border-color=#2232ab
+
+[urgency=critical]
+anchor=top-center
+border-color=#b82538
