@@ -101,7 +101,7 @@
 	},
 	"backlight": {
 	    "device": "intel_backlight",
-	    "format": "{percent}% {icon}",
+	    "format": "{icon}{percent}%",
 	    "format-icons": [" ", "󰃟 ", "󰃠 "]
 	},
 	"memory": {
@@ -110,7 +110,7 @@
 	},
 	"cpu": {
 		"interval": 5,
-		"format": "󰍛{usage:2}%"
+		"format": "󰍛 {usage:2}%"
 	},
 	"battery": {
 		"states": {
