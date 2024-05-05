@@ -3,6 +3,7 @@ font=JetBrainsMono Nerd Font
 border-radius=5
 background-color=#363d38ee
 text-color=#EEEEEE
+layer=overlay
 
 [urgency=normal]
 default-timeout=5000
