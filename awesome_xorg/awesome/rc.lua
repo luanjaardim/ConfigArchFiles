@@ -282,7 +282,7 @@ awful.screen.connect_for_each_screen(function(s)
 			mem.widget,
 			separator,
 			volume_widget({
-				widget_type = "arc",
+				widget_type = "icon_and_text",
 				size = 22,
 			}),
 			separator,
@@ -397,7 +397,7 @@ globalkeys = gears.table.join(
 
 	-- Prompt
 	awful.key({ modkey }, "x", function()
-		awful.util.spawn("dmenu_run")
+		awful.util.spawn("rofi -show drun")
 	end, { description = "run prompt", group = "launcher" }),
 
 	awful.key({ modkey }, "r", function()
@@ -412,6 +412,14 @@ globalkeys = gears.table.join(
 	awful.key({ modkey }, "p", function()
 		menubar.show()
 	end, { description = "show the menubar", group = "launcher" }),
+	awful.key({}, "Print", function()
+		awful.util.spawn_with_shell("maim --select | xclip -selection clipboard -t image/png")
+	end, { description = "temporary printScreen", group = "custom" }),
+	awful.key({ "Shift" }, "Print", function()
+		awful.util.spawn_with_shell(
+			"maim --select | tee ~/pictures/screenshots/$(date +%s).png | xclip -selection clipboard -t image/png"
+		)
+	end, { description = "printScreen saved on pictures/screenshots", group = "custom" }),
 	awful.key({}, "XF86AudioRaiseVolume", function()
 		volume_widget.inc()
 	end, { description = "raise volume", group = "Audio" }),
@@ -579,7 +587,7 @@ awful.rules.rules = {
 			role = {
 				"AlarmWindow", -- Thunderbird's calendar.
 				"ConfigManager", -- Thunderbird's about:config.
-				"pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
+				-- "pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
 			},
 		},
 		properties = { floating = true },
