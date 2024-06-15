@@ -79,6 +79,7 @@
                      :text time_month_name))))
 
 ;;music player
+(defvar pctl "playerctl --player=spotify,%any")
 (defwidget player []
   (box :orientation "v" :spacing 7 :class "sub_bg"
     (label :class "music_info" :text {music_info} :limit-width 400)
@@ -87,14 +88,14 @@
         :min 0
         :max {music_length/1000000}
         :value {music_cur_time/1000000}
-        :onchange "playerctl position {}"
+        :onchange "${pctl} position {}"
         :width 400))
     (box :orientation "h" :spacing 3
-      (button :class "music_info" :onclick "playerctl previous" "")
+      (button :class "music_info" :onclick "${pctl} previous" "")
       (button :class "music_info" 
-        :onclick "playerctl play-pause; eww update music_paused=${!music_paused}"
+        :onclick "${pctl} play-pause; eww update music_paused=${!music_paused}"
         {music_paused ? "" : ""})
-      (button :class "music_info" :onclick "playerctl next" "")
+      (button :class "music_info" :onclick "${pctl} next" "")
 )))
 
 (defwidget but [ icon but-class command ]
