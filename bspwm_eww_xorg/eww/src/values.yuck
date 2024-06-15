@@ -12,7 +12,7 @@
 (defpoll music_length :interval "5s"
   "playerctl metadata --format '{{mpris:length}}'")
 (defpoll music_paused :interval "5s"
-  "playerctl status | grep -q 'Paused' && echo true || echo false")
+  "playerctl metadata --format {{status}} | grep -q 'Paused' && echo true || echo false")
 
 (defpoll time_hour :interval "5m"
        "date +\"%I\"")
