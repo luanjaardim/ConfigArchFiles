@@ -6,13 +6,13 @@
   "./scripts/wifi.sh name")
 
 (defpoll music_info :interval "5s"
-  "playerctl metadata --format '{{artist}} - {{title}}'")
+  "./scripts/player.sh info")
 (defpoll music_cur_time :interval "5s"
-  "playerctl metadata --format '{{position}}'")
+  "./scripts/player.sh pos")
 (defpoll music_length :interval "5s"
-  "playerctl metadata --format '{{mpris:length}}'")
+  "./scripts/player.sh len")
 (defpoll music_paused :interval "5s"
-  "playerctl metadata --format {{status}} | grep -q 'Paused' && echo true || echo false")
+  "./scripts/player.sh status")
 
 (defpoll time_hour :interval "5m"
        "date +\"%I\"")
