@@ -3,7 +3,7 @@
 *{
 	all: unset;
 	font-family: feather;
-	font-family: JetBrainsMono NF;
+	font-family: FreeSans Regular;
 }
 
 
@@ -291,6 +291,7 @@ scale trough {
 }
 
 .vol_control_label, .bri_control_label, .mic_control_label {
+    font-family: FreeSans Regular;
     font-size: 30px;
     margin-right: 10px;
 }
@@ -380,12 +381,12 @@ scale trough {
 	border-radius: 8px 20px 2px 8px;
 }
 .bright scale trough {
-	all: unset;
-	background-color: #232232;
-	border-radius: 8px;
-	min-height: 10px;
-	min-width: 450px;
-	margin : 15px;
+  all: unset;
+  background-color: #232232;
+  border-radius: 8px;
+  min-height: 10px;
+  min-width: 450px;
+  margin : 15px;
 }
 .br_icon {
     font-size: 38;
@@ -432,6 +433,6 @@ scale trough {
 }
 
 .slogan {
-  font-size: 24px;
+  font-size: 20px;
   color: $wyellow;
 }

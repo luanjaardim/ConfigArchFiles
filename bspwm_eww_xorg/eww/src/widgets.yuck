@@ -98,19 +98,6 @@
       (button :class "music_info" :onclick "${pctl} next" "")
 )))
 
-(defwidget but [ icon but-class command ]
-  (box :vexpand "false" :hexpand "false"
-    (button :class but-class :onclick command icon)))
-
-;; power buttons
-(defwidget buttons []
-  (box :class "btn_container"
-    :orientation "h" :space-evenly "true" 
-    (but :icon " 󰗽 " :but-class "btn_logout" :command "bspc quit")
-    (but :icon " 󰤄 " :but-class "btn_sleep" :command "systemctl suspend")
-    (but :icon "  " :but-class "btn_reboot" :command "systemctl reboot")
-    (but :icon " " :but-class "btn_poweroff":command "shutdown now")))
-
 (defwidget pizza [ text inner-text value custom-text custom-circ ]
   (box :orientation "v"
     :hexpand true
@@ -155,9 +142,23 @@
       :onchange set_volume_cmd)
     (control :icon "" :value microphone :text-class "mic_control_label" :scale-class "mic_bar"
       :onchange set_microphone_cmd)
-    (control :icon "󰃠" :value {brightness * 100/ brightness_max} :text-class "bri_control_label" :scale-class "bri_bar"
+    (control :icon "󰃠" :value {round(brightness * 100 / brightness_max, 0)} :text-class "bri_control_label" :scale-class "bri_bar"
       :onchange set_brightness_cmd
 )))
+
+(defwidget but [ icon but-class command ]
+  (box :vexpand "false" :hexpand "false"
+    (button :class but-class :onclick command icon)))
+
+;; power buttons
+(defwidget buttons []
+  (box :class "btn_container"
+    :orientation "h" :space-evenly "true" 
+    (but :icon " 󰗽 " :but-class "btn_logout" :command "bspc quit")
+    (but :icon " 󰤄 " :but-class "btn_sleep"
+      :command "../sxhkd/scripts/panel_toggle.sh; systemctl suspend")
+    (but :icon "  " :but-class "btn_reboot" :command "systemctl reboot")
+    (but :icon " " :but-class "btn_poweroff":command "shutdown now")))
 
 ;
 ; BAR WIDGETS
