@@ -36,7 +36,7 @@ shift + XF86MonBrightnessDown
   maim -s | xclip -selection clipboard -t image/png -i
 # saving a print on specific path
 shift + @Print
-  maim -s "$HOME/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png"; \
+  maim --select | tee ~/pictures/screenzadas/$(date +%s).png | xclip -selection clipboard -t image/png; \
   notify-send "Screenshot saved" "Saved to ~/pictures/screenshots" -t 2000
 
 #
@@ -83,9 +83,9 @@ super + m
 #super + y
 #	bspc node newest.marked.local -n newest.!automatic.local
 
-# swap the current node and the biggest window
-#super + g
-#	bspc node -s biggest.window
+# swap the current node with the newest preselected node
+super + g
+	bspc node -n 'last.!automatic.local'
 
 #
 # state/flags
