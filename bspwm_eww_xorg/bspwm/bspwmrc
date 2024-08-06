@@ -2,10 +2,13 @@
 
 # Starting some programs before bspwm
 pgrep -x sxhkd > /dev/null || sxhkd & # start sxhkd if not already running
-. $HOME/.config/bspwm/scripts/eww.sh  # start eww
+xrandr --output HDMI-1 --auto --left-of eDP-1
 ~/.fehbg &                            # set wallpaper
+. $HOME/.config/bspwm/scripts/eww.sh   # start eww
 xsetroot -cursor_name left_ptr &      # set cursor
-picom --animations -b &               # start picom (ftlabs fork)
+picom --animations -b &               # start picom
+
+spotblock &                           # start spotblock
 
 bspc monitor -d 1 2 3 4 5
 
