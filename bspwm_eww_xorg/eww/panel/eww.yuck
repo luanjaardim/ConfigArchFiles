@@ -51,9 +51,9 @@
 (defwindow slogan
   :geometry (geometry :anchor "left top"
              :width "420px"
-             :height "90px"
+             :height "85px"
              :x "2%"
-             :y "74%")
+             :y "73%")
   (box :class "bg"  :style "border: 1px solid #999999; padding: 10px;"
   (label
       :class "slogan"

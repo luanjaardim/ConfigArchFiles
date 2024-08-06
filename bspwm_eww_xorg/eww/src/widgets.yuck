@@ -156,7 +156,7 @@
     :orientation "h" :space-evenly "true" 
     (but :icon " 󰗽 " :but-class "btn_logout" :command "bspc quit")
     (but :icon " 󰤄 " :but-class "btn_sleep"
-      :command "../sxhkd/scripts/panel_toggle.sh; systemctl suspend")
+      :command "./scripts/suspend.sh &")
     (but :icon "  " :but-class "btn_reboot" :command "systemctl reboot")
     (but :icon " " :but-class "btn_poweroff":command "shutdown now")))
 
